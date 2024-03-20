@@ -29,10 +29,10 @@ namespace Project__1
         static bool gameOver = false;
         static int playerGold = 0;
 
-        //Create a refrence to the rng 
+        //Create a refrence to the rng
         static Random rng = new Random();
-        
-       
+
+
 
         static void Main(string[] args)
         {
@@ -47,7 +47,7 @@ namespace Project__1
 
 
 
-            //Ask the player for there name 
+            //Ask the player for there name
             Console.WriteLine("Please Enter Your Name");
 
             //Assign the player's name based on their input
@@ -56,7 +56,7 @@ namespace Project__1
             // Welcome the player to the game... and indicate their starting health
             Console.WriteLine("Hello " + playerName + "");
             Console.WriteLine("Your Health " + playerHealth);
-            Console.WriteLine("Press ENTER");
+            Console.WriteLine("Press [ENTER]");
             Console.ReadLine();
 
 
@@ -75,7 +75,7 @@ namespace Project__1
             // Show master game loop...
             while (!gameOver)
             {
-                //Clear 
+                //Clear
                 Console.Clear();
 
                 //Show room description
@@ -119,7 +119,7 @@ namespace Project__1
 
         }
 
-       
+
 
 
         static void checkForEncounter()
@@ -141,7 +141,7 @@ namespace Project__1
             }
             else
             {
-                
+
 
             }
             //Step 3: If there is a monster, start combat....(What kind of monster???)
@@ -168,14 +168,14 @@ namespace Project__1
         }
 
 
-       
+
 
 
         static void setUpRooms()
         {
             allRooms = new Room[10];
 
-            //Arrays always start with at index 0, so 10 rooms = 0-9 
+            //Arrays always start with at index 0, so 10 rooms = 0-9
             allRooms[0] = new Room();
             allRooms[1] = new Room();
             allRooms[2] = new Room();
@@ -200,7 +200,7 @@ namespace Project__1
             allRooms[0].roomDescription = ("You wake up in a small unlit cave with no memory of how you got there, to your east is a slight glow coming from a gap in between some rocks");
 
             //Item
-           
+
 
 
 
@@ -215,7 +215,7 @@ namespace Project__1
 
             //Item
             allRooms[1].roomItem = new Item(ItemType.RustedShield);
-            
+
             //Nav matrix.... for room 2
             allRooms[2].roomToEast = 3;
             allRooms[2].roomToSouth = 4;
@@ -241,7 +241,7 @@ namespace Project__1
             //Item
             allRooms[4].roomItem = new Item(ItemType.IronDagger);
 
-            //Nav matrix.... for room 5 
+            //Nav matrix.... for room 5
             allRooms[5].roomToSouth = 6;
 
             allRooms[5].roomDescription = ("You explore deeper into the cave. The room is slightly lit by what looks to be natural liht which gives you hope of finding a way out. To your SOUTH is a lit up path");
@@ -255,7 +255,7 @@ namespace Project__1
 
             //Nav matrix.... for room 7
             allRooms[7].roomToEast = 8;
-            
+
 
             allRooms[7].roomDescription = ("You crawl through the small hole and find your self in a small hot cavern with a glowing path coming from your EAST,There is a sword stuck in the ground");
 
@@ -284,19 +284,19 @@ namespace Project__1
 
         static void handleCombat()
         {
-           
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
             //Handle the combat process....
 
-            //We need a monster to fight with....so generate / spawn a monster 
+            //We need a monster to fight with....so generate / spawn a monster
 
-            //Spawn a monster based on encounter chance 
+            //Spawn a monster based on encounter chance
             //Gen a random number... if the number is x than an imp///else orc. else....
             //newMonster = NewMonster(Monster type.....);
 
@@ -319,7 +319,7 @@ namespace Project__1
             {
                 newMonster = new Monster(Monster.MonsterType.Troll);
             }
-            else 
+            else
             {
                 newMonster = new Monster(Monster.MonsterType.Dragon);
             }
@@ -328,7 +328,7 @@ namespace Project__1
             {
                 Console.WriteLine("Ligma Balls");
             }
-            
+
             //Inform the player whats happening....
 
             Console.WriteLine("Monster Encounter");
@@ -377,13 +377,13 @@ namespace Project__1
                     newMonster.monsterAttackPwr + "Damage");
 
                 int totalDef = 0;
-                
+
                 foreach (Item Defitem in playerInvenory)
                 {
                     totalDef += Defitem.itemDef;
                 }
                 int modifiedMonsterDamage = newMonster.monsterAttackPwr - totalDef;
-                
+
                 if (modifiedMonsterDamage > 0)
                 {
                     //Monster Hits
@@ -395,8 +395,8 @@ namespace Project__1
                     Console.WriteLine("Your Armour Has Absorbed All Damage");
                     modifiedMonsterDamage = 0;
                 }
-                
-                
+
+
                 int modifiedPlayerHealth =
                     playerHealth - newMonster.monsterAttackPwr;
 
@@ -454,7 +454,7 @@ namespace Project__1
                         newMonster.monsterLoot + " gold!");
                     //Give Player The Loot
                     playerGold += newMonster.monsterLoot;
-                    
+
                     Console.WriteLine("PRESS ENTER TO RESUME YOUR ADVENTURE...");
                     Console.ReadLine();
 
@@ -481,12 +481,12 @@ namespace Project__1
 
 
 
-           
 
 
-            
 
-            
+
+
+
 
 
 
@@ -530,20 +530,20 @@ namespace Project__1
             int playerScore = 0;
 
             playerScore = playerGold * 10;
-            
+
            foreach (Item thisItem in playerInvenory)
             {
                 playerScore += thisItem.itemValue;
             }
-            
-            
-            
+
+
+
             if(playerWon)
             {
                 //Bonus Score For Winning
                 playerScore += 1000;
-                
-                //victory screen 
+
+                //victory screen
                 Console.WriteLine("You walk through the door and finally make your way out of the cave and into a field near your house");
                 Console.WriteLine("Press ENTER To Exit");
 
@@ -595,7 +595,7 @@ namespace Project__1
                     }
 
 
-                }   
+                }
             }
 
             Console.WriteLine("----------------------------------------");
@@ -686,13 +686,13 @@ namespace Project__1
                 Console.WriteLine(" Your health is " + playerHealth);
                 Console.WriteLine(" Your gold is " + playerGold);
                 Console.WriteLine(" +++++++++++++++++++++++++++++++++++++++ ");
-               
+
                 foreach(Item thisItem in playerInvenory)
                 {
                     Console.WriteLine(thisItem.itemName);
                 }
-                
-                
+
+
                 Console.WriteLine("PRESS ENTER TO CONTINUE...");
                 Console.ReadLine();
 
@@ -725,11 +725,11 @@ namespace Project__1
                     Console.WriteLine("PRESS ENTER TO CONTINUE...");
                     Console.ReadLine();
                 }
-            
 
-                
+
+
             }
-        }   
+        }
     }
 }
 
