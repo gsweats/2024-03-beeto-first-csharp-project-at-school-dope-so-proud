@@ -3,6 +3,32 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 
+
+/*
+Love the amount of commenting in here!
+So clear, and consistent.
+Great  use of Caps at start of comments.
+
+## Recommendations
+- [ ] Leave a space between the comment `//` and the text:
+  - e.g. `// Declare class variables`.
+
+When using vscode or other editors, devs generally use the fairly-standard
+`[CTRL]+[/]`
+shortcut to comment the line. Space is always added between comment and text.
+
+Helps with searching as well (e.g. seeing "Declare class" rather than "//Declare class" when searching code.
+
+### #PROTIP
+Map `[ALT]+[X]` to comment out selection as well as the default `[CTRL]+[/]`.
+This way, when scrolling through code, you don't have to take your hand off the mouse to comment out some stuff.
+
+Comes from standard `[CTRL]+[X]` to cut, but ALT instead to not cut, but comment.
+
+@GregSweat's ingenious right there.
+
+*/
+
 namespace Project__1
 {
     //Set up Program class (Was done when we started project)
